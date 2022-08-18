@@ -1,0 +1,26 @@
+.Home {
+  padding: auto;
+  background-image: url(../LandingPage/3d-animated-low-poly-earth-with-clay-look-free-video.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.buttonExplo{
+    
+    margin: 250px  350px;
+    padding: 90px;
+    cursor: pointer;
+    font-family:cursive;
+    font-size: 40px;
+    font-weight: bold;
+    border-style: none;
+   background-color:#b6ee2aa8;
+   border-start-start-radius: 180px;
+   border-end-end-radius: 180px ;
+}
+.buttonExplo:hover{
+    transition: all .5s ease 0s;
+    height: 100%;
+    padding: 100px;
+}

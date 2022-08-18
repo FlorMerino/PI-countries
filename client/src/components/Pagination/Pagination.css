@@ -1,0 +1,19 @@
+.Pag{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.Pag p{
+    margin: 22px 0 0px 0;
+}
+.Pag button{
+    color: rgb(131, 128, 128);
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: rgb(114, 248, 185);
+    padding: 4px 4px;
+    border-color: rgb(0, 0, 0) ;
+    border-style:none;
+    cursor: pointer;
+    margin: 20px;
+}

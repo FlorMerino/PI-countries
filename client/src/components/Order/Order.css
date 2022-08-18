@@ -1,0 +1,20 @@
+.Order select{
+    border-radius: 8px;
+    padding: 7px;
+    margin-left: 20px;
+    margin-top: 8px;
+    width: 100px;
+    border-color: rgb(70, 145, 145);
+    border-style:double;
+    outline-color: rgb(83, 216, 216);
+    cursor: pointer;
+    font-family: cursive;
+}
+.Order h4{
+   cursor: pointer;
+  
+}
+.Order h4:hover{
+  background-color: rgb(83, 216, 216);
+  border-radius: 8px;  
+}

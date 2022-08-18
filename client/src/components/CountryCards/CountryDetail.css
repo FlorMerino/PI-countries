@@ -1,0 +1,70 @@
+.Country {
+    background-color:rgb(106 197 178);
+    width: min(37rem, 100%); /* es como una funcion y son 2 valores, utiliza el valor mas pequeño, usa los 60 rem del espacio de donde esta*/
+    margin: 100px auto; /*sirve porq es un solo cuadrado y lo centra de una*/
+    margin-top: 60px;
+    padding: 10px;
+    border-radius: 1rem;
+    box-sizing: inherit;
+    box-shadow: 20px 20px 20px 20px rgb(0 ,0, 0, .1);
+    font-family: cursive;
+}
+.CardCountry button{
+    padding: 8px 12px 8px 12px;
+    border-radius: 8px;
+    background-color:  rgb(70, 145, 145);
+    border-color: rgb(0, 0, 0) ;
+    border-style:none;
+    cursor: pointer;
+    font-size: 15px;
+}
+.CardCountry h1{
+    margin-top: 50px ;
+    margin-bottom: 0px;
+    font-size: 35px;
+    font-family: cursive;
+}
+.CountryDetails1 hr {
+    border-color: rgb(74, 221, 209);
+    unicode-bidi:isolate-override;
+
+    border-style:groove;
+    border-width: 18px;
+}
+.Details {
+    display: grid;
+    grid-template-columns: 214px 400px; /*2 columnas, lo define en el area*/
+    grid-template-rows: 56px; /*divide en filas rows*/
+    column-gap: 40px; /*separacion entre columnas*/
+    justify-items: start
+    
+}
+.Details  h3{
+    margin-left: 70px;
+}
+.Activitie {
+    display:block ;
+    grid-template-columns: 214px 400px; /*2 columnas, lo define en el area*/
+    grid-template-rows: 56px; /*divide en filas rows*/
+    column-gap: 40px; /*separacion entre columnas*/
+}
+.Info {
+    display: grid;
+    grid-template-columns:279px 310px; /*2 columnas, lo define en el area*/
+    grid-template-rows: 225px; /*divide en filas rows*/
+    column-gap: 0px; /*separacion entre columnas*/
+}
+.border h3,
+.Activitie h4{
+    width: 200px;
+}
+.Activitie h2{
+    background-color: rgb(74, 221, 209);
+    border-radius: 10px;
+    margin-left: 150px;
+    width: 300px;
+}
+.border {
+    border-style: groove;
+    border-color: rgb(74, 221, 209);
+}

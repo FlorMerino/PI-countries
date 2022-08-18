@@ -1,0 +1,17 @@
+.Search input {
+    border-radius: 8px;
+    padding: 7px;
+    margin: 10px 20px;
+    width: 220px;
+    border-color: rgb(70, 145, 145);
+    border-style:double;
+    outline-color: rgb(83, 216, 216);
+}
+.Search button {
+    border-radius: 8px;
+    padding: 7px 7px;
+    border-color: rgb(70, 145, 145) ;
+    border-style: double;
+    cursor: pointer;
+    margin-right: 20px;
+}

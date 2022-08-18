@@ -1,0 +1,87 @@
+.nav-bg{
+    padding-top: 20px;
+    font-family: cursive;
+}
+
+.mainNavigation{
+  display:flex;
+  flex-direction: row;
+ /*para margen*/
+  max-width: 100rem;
+  margin: 70px auto;
+  
+  align-items: baseline;
+  background-color: rgb(70, 145, 145);
+  
+  position: relative;
+  padding: 14px;
+  width: 95%;   /*para cuando se achique la pantalla la barra va a ocupar el 95% de la pantalla*/
+  height: 25px; 
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 15px 15px 0 rgb(0 ,0, 0, .1);
+}
+.mainNavigation a, 
+.mainNavigation p{
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.mainNavigation a:hover,
+.OptionName:hover
+
+{
+    padding: 14px;
+    line-height: 23px;
+    background-color: rgb(83, 216, 216);
+    border-radius: 8px;
+    transition: all .5s ease 0s;
+    height: 100%;
+}
+
+/* .mainNavigation span:hover{
+   
+    padding: auto;
+    background-color: rgb(83, 216, 216);
+    border-radius: 8px;
+    transition: all .5s ease 0s;
+    line-height: 44px;
+    height: 100%;
+}  */
+
+
+.color {
+    border-radius: 8px;
+    padding: auto;
+    background-color: rgb(83, 216, 216);
+} 
+
+
+
+@media (min-width: 768px) { /*permite q llegado a cierto valor de px muestre los navegadores como columnas. Los Media Queries eredan lo escrito en el parrafo de arriba*/
+    .mainNavigation {
+        flex-direction: row;
+        justify-content: space-evenly ; /* separa los nav*/
+    }
+}
+.visible{
+  display:block;
+  padding: 10px;
+  background-color: rgb(70, 145, 145);
+}
+
+.no-visible{
+  display: none;
+}
+.mainNavigation hr {
+    margin: 0 ;
+
+}
+   

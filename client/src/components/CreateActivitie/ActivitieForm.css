@@ -1,0 +1,165 @@
+.Form {
+    background-color: rgb(155, 223, 78);
+    width: min(50rem, 100%); /* es como una funcion y son 2 valores, utiliza el valor mas pequeño, usa los 60 rem del espacio de donde esta*/
+    margin: 100px auto; /*sirve porq es un solo cuadrado y lo centra de una*/
+    margin-top: 60px;
+    padding: 10px;
+    border-radius: 1rem;
+    box-sizing: inherit;
+    box-shadow: 20px 20px 20px 20px rgb(0 ,0, 0, .1);
+}
+.Form button{
+    border-radius: 8px;
+    padding: 7px 7px;
+    border-color: rgb(70, 145, 145) ;
+    border-style: double;
+    cursor: pointer;
+    margin-right: 20px;
+}
+@media (min-width: 780px) {
+    
+    .Container {
+    display: grid;/*usamos grid porq las columnas se alternan*/
+    grid-template-columns: 400px 400px; /*2 columnas, lo define en el area*/
+    grid-template-rows: auto auto 90px; /*divide en filas rows*/
+    column-gap: 10px; /*separacion entre columnas*/
+
+    }
+} 
+.Form .fieldset{
+    border:none;
+}
+.fieldset{
+    margin: 0px;
+    padding: 0px;
+    border-width: 2px;
+    border:none;
+}
+.field,
+.Season {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.field label,
+.Season label,
+.Search label {
+    margin-right: 0px;
+    margin-left: 10px;
+    padding: 0;
+    display: block;
+    font-weight:1600;
+    color: black;
+    margin-bottom: 0.5rem; 
+    text-align: left;
+}
+
+.inputText{
+    border-radius: 8px;
+    padding: 7px;
+    margin: 8px 150px 8px 0px;
+    width: 220px;
+    border-color: rgb(70, 145, 145);
+    border-style:double;
+    outline-color: rgb(83, 216, 216);
+}
+.inputTimer{
+    border-radius: 8px;
+    padding: 7px;
+    margin: 10px 20px;
+    width: 100px;
+    border-color: rgb(70, 145, 145);
+    border-style:double;
+    outline-color: rgb(83, 216, 216);
+    cursor: pointer;
+}
+.Error {
+    color:rgb(211, 0, 0);
+    margin-top: 0px;
+    margin-right: 150px;
+
+}
+.ErrorTimer{
+    border-color: rgb(211, 0, 0);
+    border-radius: 8px;
+    padding: 7px;
+    margin: 10px 20px;
+    width: 100px;
+    border-style:double;
+    outline-color: rgb(83, 216, 216);
+    cursor: pointer;
+}
+.ErrorInput{
+    border-color: rgb(211, 0, 0);
+    border-radius: 8px;
+    padding: 7px;
+    margin: 8px 150px 8px 0px;
+    width: 220px;
+    border-style:double;
+    outline-color: rgb(83, 216, 216);
+}
+.Container select{
+    border-radius: 8px;
+    padding: 7px;
+    margin-left: 20px;
+    margin-top: 8px;
+    width: 100px;
+    border-color: rgb(70, 145, 145);
+    border-style:double;
+    outline-color: rgb(83, 216, 216);
+    cursor: pointer;
+}
+.Container .Season{
+    grid-column-start: 1; 
+    grid-column-end: 2;
+}
+.Container .Search{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2; 
+    grid-column-end: 3;
+}
+.buttonBack{
+    padding: 8px 12px 8px 12px;
+    border-radius: 8px;
+    background-color:  rgb(70, 145, 145);
+    border-color: rgb(0, 0, 0) ;
+    border-style:none;
+    cursor: pointer;
+    font-size: 15px;
+}
+.MessageConfirmation p{
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+.ActivitiesForm h2{
+    margin-top: 50px ;
+    margin-bottom: 0px;
+    font-size: 35px;
+    font-family: cursive;
+   
+}
+.listCountries {
+    padding-inline-start: 0px;
+    margin-top: 0px ;
+    width: 430px;
+    height: 35px;  
+    margin-bottom: 0px;
+}
+.listCountries li{
+    display: inline-table;
+    list-style:none;
+    text-align: left;
+    margin: 0px;
+    width: 230px;
+    height: 25px;
+    background-color: rgba(93, 255, 255, 0.801);
+}
+.listCountries .checkbox{
+    margin: auto;
+    width: 25px;
+    cursor: pointer;
+
+}
+
