@@ -1,32 +1,62 @@
-.nav-bg{
-    padding-top: 20px;
-    font-family: cursive;
+*{ /*el asterico es para el body*/
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+   
 }
+.head{
+    background-image: url(../../Img/countries_flags1.jpg);
+    background-repeat: no-repeat;  
+    background-size:cover;
+}
+ nav{
+    
+  padding-top: 60px;
+  font-family: cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.397);
 
-.mainNavigation{
-  display:flex;
+}  
+/*
+.menu > li{  /*el signo desigual es para excluir los li q no son del submenu*
+  display: inline-block;
+} */
+
+nav .menu{
+
+  display: flex;
+
   flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
  /*para margen*/
   max-width: 100rem;
-  margin: 70px auto;
-  
-  align-items: baseline;
+  margin: 70px auto;                                                                                 
   background-color: rgb(70, 145, 145);
-  
   position: relative;
-  padding: 14px;
+  padding: 25px;
   width: 95%;   /*para cuando se achique la pantalla la barra va a ocupar el 95% de la pantalla*/
   height: 25px; 
   font-size: 14px;
   border-radius: 8px;
   box-shadow: 0 15px 15px 0 rgb(0 ,0, 0, .1);
 }
-.mainNavigation a, 
-.mainNavigation p{
+nav ul{
+    list-style: none;
+
+}
+.menu a,
+.menu .p{
     font-size: 18px;
     color: rgb(0, 0, 0);
     text-decoration: none;
-    text-align: center;
+    text-align:center;
     display: inline-block;
     position: relative;
     
@@ -34,33 +64,45 @@
     cursor: pointer;
 }
 
-.mainNavigation a:hover,
-.OptionName:hover
-
+.menu p:hover
 {
-    padding: 14px;
+    padding: 5px;
     line-height: 23px;
     background-color: rgb(83, 216, 216);
     border-radius: 8px;
     transition: all .5s ease 0s;
     height: 100%;
 }
-
-/* .mainNavigation span:hover{
+.menu .filters:hover
+{
+    padding: 15px;
+    line-height: 23px;
+    background-color: rgb(83, 216, 216);
+    border-radius: 8px;
+    transition: all .6s ease 0s;
+    height: 100%;
+}
+.not-color:hover{
    
     padding: auto;
     background-color: rgb(83, 216, 216);
     border-radius: 8px;
-    transition: all .5s ease 0s;
-    line-height: 44px;
-    height: 100%;
-}  */
+    transition: all .8s ease 0s;
+    
+    
+}  
 
-
-.color {
+nav h1{
+    color: rgb(0, 0, 0);
+    font-size: 60px;
+    margin-bottom: 0px;
+    text-shadow: 0 0 0.3em rgb(252, 252, 252), 0 0 0.3em rgb(255, 255, 255),
+    0 0 0.3em rgb(255, 255, 255);
+}
+.menu .color {
     border-radius: 8px;
-    padding: auto;
-    background-color: rgb(83, 216, 216);
+    padding: 0px;
+    background-color:rgb(83, 216, 216); 
 } 
 
 
@@ -71,17 +113,19 @@
         justify-content: space-evenly ; /* separa los nav*/
     }
 }
-.visible{
-  display:block;
+.visibleSubmenu{
+  border-radius: 8px;
+  position: absolute; /* necesario para que me aparezca abajo al hacer click*/
   padding: 10px;
   background-color: rgb(70, 145, 145);
 }
 
-.no-visible{
+.not-visibleSubmenu{
   display: none;
 }
-.mainNavigation hr {
-    margin: 0 ;
+.menu hr {
+    margin: 0px ;
+    padding-top: 30px;
 
 }
    

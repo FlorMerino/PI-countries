@@ -5,8 +5,9 @@ import './Landing.css';
 const LandingPage = ()=> {
     
     return (
-     <div className="Home" >
-      <Link to="/home"> <button className="buttonExplo" > Explorando el mundo</button></Link>
+     <div className="LandingPag" >
+
+     <Link to="/home/"><h1>👉Explore</h1>  </Link>
      </div>
     )
 }

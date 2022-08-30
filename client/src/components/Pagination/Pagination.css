@@ -7,7 +7,7 @@
     margin: 22px 0 0px 0;
 }
 .Pag button{
-    color: rgb(131, 128, 128);
+    font-family: cursive;
     font-size: 15px;
     border-radius: 8px;
     background-color: rgb(114, 248, 185);
@@ -16,4 +16,21 @@
     border-style:none;
     cursor: pointer;
     margin: 20px;
+}
+.not-button{
+    color: darkgray;
+}
+.numPage {
+  margin-top: 22px;
+}
+.numPage a{
+    padding: 5px;
+    text-decoration:underline;
+    cursor: pointer;
+}
+.numPage a:hover{
+    color: rgb(0, 0, 194);
+}
+.colorNum {
+    color: rgb(0, 0, 194);
 }

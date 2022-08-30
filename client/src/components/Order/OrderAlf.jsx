@@ -20,7 +20,7 @@ const OrderAlf = () =>{
  
   return(
     <div className="Order">
-        <h4>Alfabeticamente</h4>
+        <h4>Alphabetically</h4>
         <select name="select" onChange={e => onSelectChange(e)}>
          <option value="none" >-</option>
          <option value='ASCENDANT' >A-Z</option>

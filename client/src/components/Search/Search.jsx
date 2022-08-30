@@ -32,9 +32,9 @@ const handleSubmit = (e) =>{
     return(
         <div className="Search">
          
-         <input className="input" type="text" placeholder="Nombre del pais..." name="name" value={input.name} onChange={e => inputChange(e)} />
+         <input className="input" type="text" placeholder="Country name..." name="name" value={input.name} onChange={e => inputChange(e)} />
 
-         <button className="button" onClick={e => handleSubmit(e)}>Buscar</button>
+         <button className="button" onClick={e => handleSubmit(e)}>Search</button>
         </div>
     )
 };

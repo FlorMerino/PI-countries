@@ -2,6 +2,12 @@
     margin: 25px;
 }
 .allCountries .image{
+    margin-left: 30px;
+   grid-column-start: 2; /*posicionamiento en grid*/
+   grid-column-end: 3;
+}
+.allCountries p{
+   font-size: 25px;
    grid-column-start: 2; /*posicionamiento en grid*/
    grid-column-end: 3;
 }

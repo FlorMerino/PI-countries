@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterCountries } from "../../redux/actions";
-import { filterFunction } from "../../FunctionsControllers/Functions";
+import { filterFunction} from "../Filter/functionForFilter";
+import { MultiSelect } from "react-multi-select-component";
 import './Filter.css'
 
 const Filter = ({data}) => {
@@ -10,90 +11,75 @@ const Filter = ({data}) => {
  let continents= filterFunction(data, 'continent');
  let activities = filterFunction(data, 'Tourist_activities');
 
+ const [selected1, setSelected1] = useState([]);
+ const [selected2, setSelected2] = useState([]);
 
- const[input, setInput]= useState({
-      continent :[],
-      Tourist_activities:[] 
-    });
-  
-   const[option, setOption] = useState({visible1:false, visible2:false})
-
-   const handleClickOption = (e) =>{
-
-     let prop = e.target.innerHTML === 'Actividad turistica'? 'visible2' : 'visible1';
-     e.preventDefault();
-     setOption({
-      ...option,
-      [prop]: !option[prop]})
-   };
-
- const handleInputChange = (e) => {
-  
- let nameProp= e.target.name;
-
- if(e.target.checked){
-          console.log(e.target.checked)
-    setInput({
-        ...input,
-        [nameProp] : [...input[nameProp], e.target.value]
-    });
+ const valueRenderer1 = () => {
+  if (selected1.length===0) {
+    return "Continent";
+  }
  }
- else if(!e.target.checked){
-    
-    setInput({
-        ...input,
-        [nameProp]: input[nameProp].filter(elem => elem !== e.target.value),
-      });
+ const valueRenderer2 = ()=> {
+  if (selected1.length===0) {
+    return "Turist Activitie";
+  }
  }
- };
+ const[selectContinents, setSelectContinents]= useState({continent :[]});
+ 
+ const [selectActivitie,setSelectActivitie]=useState({Tourist_activities : []});
+
+ const handleChange1 = (e)=> {
+  setSelected1(e);
+  setSelectContinents({...selectContinents, continent :e.map(e=> e.value)});
+ }
+
+ const handleChange2 = (e) =>{
+  setSelected2(e);
+
+  setSelectActivitie({...selectActivitie, Tourist_activities :e.map(e=> e.value)});
+ }
 
  let dispatch = useDispatch();
 
- const handleSubmit = (e)=> {
-  dispatch(filterCountries(input));
-  setInput({
-    continent :[],
-    Tourist_activities:[] 
-  });
- };
+  const handleSubmit = (e)=> {
+   dispatch(filterCountries({...selectContinents,...selectActivitie}));
+   setSelectContinents({continent :[]});
+   setSelectActivitie({Tourist_activities:[]});
+   setSelected1([]);
+   setSelected2([]);
+  };
+ 
   return(
    <span className="FilterOptions" >
 
-    <div>
-    <h4 className="listOpt" onClick={e =>{handleClickOption(e)}} >Contienente</h4>     
-             
-             <ul className={option.visible1? 'visible1' : 'no-visible1'} > 
-             {
-               continents.map( obj => {
-                return <li className="list" key={obj.id} >
-                 <input className="checkbox" type="checkbox" name='continent' value={obj.property} onClick={e =>handleInputChange(e)}/> {obj.property}
-                 </li>
-               })
-             }
-             </ul>
-
+    <div>            
+    <MultiSelect
+   
+      options={continents}
+      value={selected1}
+      onChange={handleChange1}
+      valueRenderer={valueRenderer1}
+      labelledBy="Select"
+      
+    />   
     </div>
 
     <div >
-     <h4 className="listOpt" onClick={e =>{handleClickOption(e)}} >Actividad turistica</h4>
-          <ul className={option.visible2? 'visible1' : 'no-visible1'} >
-            {
-              activities.length >0?
-               activities.map( obj => {
-                return <li key={obj.id} className="list" >
-                 <input className="checkbox" type="checkbox" name='Tourist_activities' value={obj.property} onClick={e => handleInputChange(e)}/> {obj.property}
-                </li>
-                }):
-              <p></p>
-            }
-            </ul> 
-            <button onClick={handleSubmit} >filtrar</button>
+    <MultiSelect
+ 
+      options={activities}
+      value={selected2}
+      onChange={handleChange2}
+      valueRenderer={valueRenderer2}
+      labelledBy="Select"
+      
+    />
     </div>       
-     
+
+    <button onClick={handleSubmit} >Filter</button>
     </span>
 
     );
-
 };
 
 export default Filter;

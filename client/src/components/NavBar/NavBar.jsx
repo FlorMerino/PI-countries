@@ -19,13 +19,11 @@ const NavBar = ({ allCountries, countries, setPag}) => {
  }
 
  const handleClickOrder = (e) =>{
-  console.log(e)
   e.preventDefault();
   setOrder({visible: !order.visible})
 };
 
  const handleClickOptions = (e) =>{
-    console.log(e)
     e.preventDefault();
     setOptions({visible: !options.visible})
   };
@@ -36,23 +34,38 @@ const NavBar = ({ allCountries, countries, setPag}) => {
   };
 
   return (
-   
-   <div className='nav-bg'>
-     <ul className='mainNavigation'>
-  
-      <Link to="/"  >Home</Link>
 
-      <Link to="/country/create-tourist-activity" onClick={handleSubmit} > Crear Actividad Turistica </Link> 
-      <hr />
-      <span className={search.color? 'color' : 'not-color'} onClick={e=> handleClickSearch(e)} ><Search setPag={setPag} /></span>
+    <div className='head'>
+      <nav>
+       <h1>Countries</h1>
 
-      <ul className='Options'><p className='OptionName' onClick={e=> handleClickOptions(e)} >Filtrar por </p> <span className={options.visible? 'visible' : 'no-visible'} ><Filter data={allCountries} /></span>  </ul>
+       <ul className='menu'>
+    
+         <li><p><Link to="/"  >Welcome</Link></p></li>
 
-      <ul className='Options'><p className='OptionName' onClick={e=> handleClickOrder(e)} >Ordenar</p> <span className={order.visible? 'visible' : 'no-visible'}><OrderNum data={countries}/> <OrderAlf/></span></ul>
-      
-     </ul>
-   </div>
-   
+         <li><p><Link to="/country/create-tourist-activity" onClick={handleSubmit} > Create Tourist Activity </Link></p> </li>
+         <hr />
+         <li className={search.color? 'color' : 'not-color'} onClick={handleClickSearch} > 
+          <span><Search setPag={setPag} /></span> 
+         </li>
+
+         <li><a onClick={e=> handleClickOptions(e)} className='filters'>Filter</a> 
+            <ul className={options.visible? 'visibleSubmenu' : 'not-visibleSubmenu'} >
+              <li><Filter data={allCountries} /></li> 
+            </ul>
+         </li>
+
+         <li><a onClick={e=> handleClickOrder(e)} className='filters' >Sort</a> 
+            <ul className={order.visible? 'visibleSubmenu' : 'not-visibleSubmenu'}>
+              <li><OrderNum data={countries}/></li> 
+              <li><OrderAlf/></li>
+            </ul>
+          </li>
+       </ul>     
+    </nav>
+
+    </div>
+
   );
 };
 

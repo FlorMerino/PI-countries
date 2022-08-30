@@ -9,6 +9,7 @@
     outline-color: rgb(83, 216, 216);
     cursor: pointer;
     font-family: cursive;
+    font-size: 15px;
 }
 .Order h4{
    cursor: pointer;

@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
-import {createActivitie, set} from '../../redux/actions/index';
+import {createActivitie, set, setConfirmation} from '../../redux/actions/index';
 import Search from "../Search/Search";
 import Validate from "./ValidateForm";
 import './ActivitieForm.css'
+import { useEffect } from "react";
 
 const CreateActivitie = () => {
 
@@ -16,9 +17,7 @@ const CreateActivitie = () => {
     countryId:[]
  });
  const [errors, setErrors] = useState({});
- const [message, setMessage] = useState({})
-  console.log(input)
-
+ 
  const inputChange = (e) => {
   setErrors(Validate({
     ...input,
@@ -47,18 +46,18 @@ const CreateActivitie = () => {
     });
   }
  };
- console.log(errors)
- console.log(message)
  let dispatch = useDispatch();
+ useEffect(()=>{
+  return () =>{ dispatch(setConfirmation()) };//cuando se desmonta el componente se ejecuta esta funcionn
+},[dispatch]);
 
  const handleSubmit = (e) => {   //funcion q recibe evento
     e.preventDefault();
-    
-   let valueSet=[];
+
    if(Object.keys(errors).length ===0){
     dispatch(createActivitie(input));
 
-    dispatch(set(valueSet));
+    dispatch(set([]));
 
     setInput({
       name: '',
@@ -67,9 +66,8 @@ const CreateActivitie = () => {
       season: '',
       countryId: []
     });
-    setErrors(errors);
     }
-   setMessage(errors);
+   
    setInput({
     name: '',
     difficulty: 'none',
@@ -77,28 +75,29 @@ const CreateActivitie = () => {
     season: '',
     countryId: []
   });
-   setErrors({});
-   dispatch(set(valueSet));
+ 
+   dispatch(set([]));
 };
 
  let confirmationR = useSelector(state => state.createActivitie);
+
  let countriesOptions= useSelector(state => state.countries);
 
  return(
   <div className="ActivitiesForm" >
-    <h2>Crear actividad turistica</h2>
+    <h2>Create tourist activity</h2>
       <form className="Form">
        <fieldset className="fieldset" >
         <div className="Container">
          
          <div className="field">
-           <label>Nombre de la actividad</label> 
-           <input className={message.name? 'ErrorInput': 'inputText'} type="text" name="name"  value={input.name} onChange={e=> inputChange(e)} /> 
-           <p className="Error" >{message.name}</p>
+           <label>Name of the activity</label> 
+           <input className={errors.name? 'ErrorInput': 'inputText'} type="text" name="name"  value={input.name} onChange={e=> inputChange(e)} /> 
+           <p className="Error" >{errors.name}</p>
          </div>
         
          <div className="field">
-           <label>Dificultad</label> 
+           <label>Difficulty</label> 
            <select name="difficulty" onChange={e => inputChange(e)} value={input.difficulty} >
              <option value="none" >-</option>
              <option value="1">1</option>
@@ -110,25 +109,25 @@ const CreateActivitie = () => {
          </div>
 
          <div className="field">
-           <label>Duracion:</label> 
-           <input className={message.duration? 'ErrorTimer': "inputTimer"} type="time" name="duration" value={input.duration} onChange={e=>inputChange(e)} />
-           <p className="Error" >{message.duration}</p>
+           <label>Duration:</label> 
+           <input className={errors.duration? 'ErrorTimer': "inputTimer"} type="time" name="duration" value={input.duration} onChange={e=>inputChange(e)} />
+           <p className="Error" >{errors.duration}</p>
          </div>
 
         
          <div className="Season">
-           <label>Temporada en la cual puede realizarse</label> 
+           <label>Season in which it takes place</label> 
            <select name="season" onChange={e => inputChange(e)} value={input.season} >
             <option value="none" >-</option>
-            <option value="verano">verano</option>
-            <option value="otoño">otoño</option>
-            <option value="invierno">invierno</option>
-            <option value="primavera">primavera</option>
+            <option value="summer">summer</option>
+            <option value="fall">fall</option>
+            <option value="winter">winter</option>
+            <option value="spring">spring</option>
            </select>
          </div>
       
           <div className="Search">
-           <label>Busque y seleccione el/los paises donde se realiza su actividad: </label>
+           <label>Search and select the country/countries where your activity takes place: </label>
             <Search/> 
             {
               countriesOptions.length >0?
@@ -147,17 +146,16 @@ const CreateActivitie = () => {
           </div>
        </fieldset>
         <span className="MessageConfirmation" >
-        {
-          Object.keys(message).length ===0?
-          <p>{confirmationR}</p>:
-          <p>No pudimos cargar su actividad turistica</p>
+        { Object.keys(errors).length !==0?
+           <p>Complete the corresponding data</p>:
+          <p>{confirmationR}</p>
         }
         </span>
 
-         <button onClick={e => handleSubmit(e)} className='button'>Crear Actividad</button>
+         <button onClick={e => handleSubmit(e)} className='button'>Create Activity</button>
         </form>
-    <footer >
-    <Link to="/home"> <button className="buttonBack">Volver</button> </Link>
+    <footer  >
+     <Link to="/home"> <button className="buttonBack">Back</button> </Link>
     </footer>
       
   </div>

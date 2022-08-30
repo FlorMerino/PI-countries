@@ -1,10 +1,23 @@
 .card {
+ margin-bottom: 30px;
+ margin-top: 30px;
+ margin-left: 5px;
+ margin-right: 5px;
  border-radius: 3px;
  box-shadow: 10px 10px 10px 10px rgb(0 ,0, 0, .1);
+ background-color: rgba(235, 245, 245, 0.863);
 }
 
 .card a{
  text-decoration: none;
  color: rgb(0, 0, 63);
  cursor: pointer;
+ margin: 10px;
+}
+.card h2{
+    margin-bottom: 30px;
+}
+.card h3{
+    margin-bottom: 30px;
+    margin-top: 30px;
 }

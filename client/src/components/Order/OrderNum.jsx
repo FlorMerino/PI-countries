@@ -19,7 +19,7 @@ const OrderNum = () => {
   useEffect(()=>{  dispatch(sortNumPopulation(input)) },[dispatch,input])
  return(
   <div className="Order">
-    <h4>Cantidad de poblacion</h4>
+    <h4>Population amount</h4>
     <select name="select" onChange={e => onSelectChange(e)}>
          <option value="none" >-</option>
          <option value='ASCENDANT' >min-max</option>

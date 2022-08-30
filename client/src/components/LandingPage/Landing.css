@@ -1,26 +1,32 @@
-.Home {
+.LandingPag {
   padding: auto;
-  background-image: url(../LandingPage/3d-animated-low-poly-earth-with-clay-look-free-video.gif);
+  background-image: url(../../Img/3d-animated-low-poly-earth-with-clay-look-free-video.gif);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  width:100%;
+  height:100%;
+  
 }
+.LandingPag a{
+  margin: 280px 280px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  padding: auto;
+  cursor: pointer; 
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0 0 0.3em rgb(252, 252, 252), 0 0 0.3em rgb(255, 255, 255),
+    0 0 0.3em rgb(255, 255, 255);
+  box-sizing:content-box;
 
-.buttonExplo{
-    
-    margin: 250px  350px;
-    padding: 90px;
-    cursor: pointer;
-    font-family:cursive;
-    font-size: 40px;
-    font-weight: bold;
-    border-style: none;
-   background-color:#b6ee2aa8;
-   border-start-start-radius: 180px;
-   border-end-end-radius: 180px ;
 }
-.buttonExplo:hover{
+.LandingPag h1{
+  margin: 280px 280px;
+
+}
+.LandingPag a:hover{
+  text-shadow: 0 0 0.9em rgb(139, 216, 51), 0 0 0.9em rgb(139, 216, 51),
+  0 0 0.9em rgb(139, 216, 51);
     transition: all .5s ease 0s;
-    height: 100%;
-    padding: 100px;
 }

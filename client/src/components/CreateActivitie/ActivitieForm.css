@@ -1,6 +1,6 @@
 .Form {
-    background-color: rgb(155, 223, 78);
-    width: min(50rem, 100%); /* es como una funcion y son 2 valores, utiliza el valor mas pequeño, usa los 60 rem del espacio de donde esta*/
+    background-color: rgba(155, 223, 78, 0.712);
+    width: min(53rem, 100%); /* es como una funcion y son 2 valores, utiliza el valor mas pequeño, usa los 60 rem del espacio de donde esta*/
     margin: 100px auto; /*sirve porq es un solo cuadrado y lo centra de una*/
     margin-top: 60px;
     padding: 10px;
@@ -16,6 +16,11 @@
     cursor: pointer;
     margin-right: 20px;
 }
+.ActivitiesForm{
+    background-image: url(../../Img/min_world.jpg);
+    background-size: cover;
+}
+
 @media (min-width: 780px) {
     
     .Container {
@@ -134,11 +139,15 @@
     font-size: 20px;
 }
 .ActivitiesForm h2{
-    margin-top: 50px ;
+    padding: 50px;
     margin-bottom: 0px;
     font-size: 35px;
     font-family: cursive;
-   
+    text-shadow: 0 0 0.9em rgb(139, 216, 51), 0 0 0.9em rgb(139, 216, 51),
+    0 0 0.9em rgb(139, 216, 51);
+}
+.ActivitiesForm footer{
+    padding: 50px;
 }
 .listCountries {
     padding-inline-start: 0px;
@@ -148,13 +157,15 @@
     margin-bottom: 0px;
 }
 .listCountries li{
+    
     display: inline-table;
+    position: relative;
     list-style:none;
     text-align: left;
     margin: 0px;
     width: 230px;
     height: 25px;
-    background-color: rgba(93, 255, 255, 0.801);
+    background-color: rgba(93, 255, 255, 0.952);
 }
 .listCountries .checkbox{
     margin: auto;

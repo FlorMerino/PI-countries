@@ -1,10 +1,10 @@
-import {GET_COUNTRIES, GET_COUNTRIE_DETAIL, CREATE_ACTIVITIE,ORDERALF_COUNTRIES, GET_COUNTRY_NAME, FILTER_COUNTRIES, ORDERNUM_POPULATION} from '../actions/index';
+import {GET_COUNTRIES,SET_COFIRMATION,SET_COUNTRIE_DETAIL ,GET_COUNTRIE_DETAIL, CREATE_ACTIVITIE,ORDERALF_COUNTRIES, GET_COUNTRY_NAME, FILTER_COUNTRIES, ORDERNUM_POPULATION} from '../actions/index';
+import { filterCoun_Act, orderAlf, orderPopulation } from './ControllerReducer';
 
 const initialState = {
     allCountries: [], //todos los paises
     countries: [], // todos los paises q voy renderizando
     countryDetail: {},  //los paises por id
-  //  filteredCountries: [],
     createActivitie: ''
    };
    
@@ -22,64 +22,30 @@ const initialState = {
    
       case CREATE_ACTIVITIE:
        return{...state, createActivitie: action.payload }
+
+      case SET_COUNTRIE_DETAIL:
+       return{...state, countryDetail: {}}
+      
+      case SET_COFIRMATION:
+        return{...state, createActivitie:''}
    
       case FILTER_COUNTRIES:
-        // {
-        //   continent :  ['Asia', 'Europa'],
-        //   Tourist_activities:  ['canotaje', 'cabalgata'] 
-        // } 
-       let dataPayload = action.payload; // obj de arrays
-       let filterCountries = [];
-       for (const property in dataPayload) { //tomo las props  continent o Tourist_activities
-         let dataArray =dataPayload[property]; // ['Asia', 'Europa']
-         
-         for (let i = 0; i < dataArray.length; i++) {
-           let filterCondition = dataArray[i]; // 'Asia' o 'activitie'
+      let filterCountries= filterCoun_Act(action.payload,state.allCountries) 
 
-           state.allCountries.forEach(country => {
-
-             if(Array.isArray(country[property])){
-               country[property].forEach(activitie => {
-                 if(activitie.name === filterCondition){
-                   filterCountries.push(country);
-                 };
-               });
-              }else{
-               if(country[property] === filterCondition){
-                 filterCountries.push(country);
-                };
-              }
-           });
-          };
-        };
-      
        return{...state, countries: filterCountries }
    
-      case ORDERNUM_POPULATION:
-       let orderNumPopulation= [...state.countries]
-        
-       let orderAscendant= orderNumPopulation.sort((a, b) => a.population - b.population)
-       if(action.payload === 'ASCENDANT'){
-        return{...state, countries: orderAscendant}
-       }else if(action.payload === 'DESCENDENTE'){
-        let orderDesc = orderAscendant.reverse();
-        return{...state, countries: orderDesc}
-       };
-
+      case ORDERNUM_POPULATION:      
+       if(typeof state.countries !== 'string'){
+        let orderNumPopulation = orderPopulation(action.payload,[...state.countries])
+        if(typeof orderNumPopulation !== 'undefined'){
+          return{...state, countries: orderNumPopulation}
+        }       
+       }  
       case ORDERALF_COUNTRIES:
-       let orderAlfCountry = [...state.countries]; 
-            
-       orderAlfCountry = orderAlfCountry.sort((a,b) =>{
-       if(a.name < b.name) {
-        return action.payload==='ASCENDANT'? -1 : 1; //ultimo caso cuando este en des y quiera llevarlo a asc
+       if(typeof state.countries !== 'string'){
+        let orderAlfCountries = orderAlf(action.payload,state.countries)
+        return{...state, countries: orderAlfCountries};
        }
-       if(a.name > b.name){
-        return action.payload === 'DESCENDENTE'? -1 : 1;
-       }
-       return 0;
-       });
-       return{...state, countries: orderAlfCountry };        
-            
       default: return{...state}
      }
    };

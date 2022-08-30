@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <Route exact path="/" component={LandingPage} />
-      <Route path="/home" component={Home}/>
       <Route path="/country/create-tourist-activity" component={CreateActivitie} />
       <Route path='/country/detail/:id' component={CountryDetail}/>
+      <Route path="/home/" component={Home} />   
     </div>
   );
 }

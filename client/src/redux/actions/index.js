@@ -6,6 +6,9 @@ export const ORDERALF_COUNTRIES ='ORDER_COUNTRIES';
 export const GET_COUNTRY_NAME ='GET_COUNTRY_NAME';
 export const FILTER_COUNTRIES = 'FILTER_COUNTRIES';
 export const ORDERNUM_POPULATION = 'ORDERNUM_POPULATION';
+export const SET_COUNTRIE_DETAIL= 'SET_COUNTRIE_DETAIL';
+export const SET_COFIRMATION = 'SET_COFIRMATION';
+
 
 export const getCountries = () => {
     return async function (dispatch) {
@@ -46,7 +49,8 @@ export const createActivitie = (inputActivitie) => {
             payload: response.data,
         })
     })
-    .catch(error => console.log(error))
+    .catch(error => {console.log(error)
+    })
    }
 };
 
@@ -88,7 +92,16 @@ export const set = (valueSet) => {
     payload: valueSet
  }
 };
-
+export const setCountrieDetail = () => {
+    return{
+       type:SET_COUNTRIE_DETAIL
+    }
+   };
+export const setConfirmation = () => {
+    return{
+        type:SET_COFIRMATION
+     }
+}
 export const filterCountries = (input) => {
  return{
   type: FILTER_COUNTRIES,

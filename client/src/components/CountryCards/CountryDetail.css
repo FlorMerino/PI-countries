@@ -1,15 +1,23 @@
 .Country {
-    background-color:rgb(106 197 178);
+    background-color:rgba(106, 197, 177, 0.808);
     width: min(37rem, 100%); /* es como una funcion y son 2 valores, utiliza el valor mas pequeño, usa los 60 rem del espacio de donde esta*/
     margin: 100px auto; /*sirve porq es un solo cuadrado y lo centra de una*/
     margin-top: 60px;
     padding: 10px;
     border-radius: 1rem;
     box-sizing: inherit;
-    box-shadow: 20px 20px 20px 20px rgb(0 ,0, 0, .1);
+    box-shadow: 50px 50px 50px 50px rgb(0 ,0, 0, .1);
     font-family: cursive;
 }
+.CardCountryFirst{
+    background-image: url(../../Img/countries_flag2.jpg);
+    background-size:cover;
+}
+.CardCountry{
+    background-color: rgba(0, 0, 0, 0.432);
+}
 .CardCountry button{
+    margin-bottom: 20px;
     padding: 8px 12px 8px 12px;
     border-radius: 8px;
     background-color:  rgb(70, 145, 145);
@@ -19,17 +27,20 @@
     font-size: 15px;
 }
 .CardCountry h1{
-    margin-top: 50px ;
+    padding-top: 20px;
     margin-bottom: 0px;
     font-size: 35px;
     font-family: cursive;
+    color: black;
+    text-shadow: 0 0 0.9em rgb(139, 216, 51), 0 0 0.9em rgb(139, 216, 51),
+    0 0 0.9em rgb(139, 216, 51);
 }
 .CountryDetails1 hr {
-    border-color: rgb(74, 221, 209);
+    border-color: rgb(2, 2, 2);
     unicode-bidi:isolate-override;
 
-    border-style:groove;
-    border-width: 18px;
+    border-style:solid;
+    border-width: 8px;
 }
 .Details {
     display: grid;
