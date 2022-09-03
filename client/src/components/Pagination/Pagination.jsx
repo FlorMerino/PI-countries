@@ -8,8 +8,8 @@ const Pagination= ({pag,setPag,max,countries}) =>{
  }
  
  const nextHandler = (e) =>{
-  let sum= pag+1;
-   setPag(sum)
+  
+   setPag(pag+1)
  }
  const handleChange = (e) =>{
   setPag(parseInt(e.target.innerHTML))
