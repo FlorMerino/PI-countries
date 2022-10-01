@@ -9,10 +9,12 @@ export const ORDERNUM_POPULATION = 'ORDERNUM_POPULATION';
 export const SET_COUNTRIE_DETAIL= 'SET_COUNTRIE_DETAIL';
 export const SET_COFIRMATION = 'SET_COFIRMATION';
 
+/// lo q iria para verlo localmente const localServer= 'http://localhost:3001';
+
 
 export const getCountries = () => {
     return async function (dispatch) {
-     return axios.get('http://localhost:3001/api/countries/countries')
+     return axios.get(`/api/countries/countries`)
      .then(countries => {
         dispatch({
             type: GET_COUNTRIES,
@@ -27,7 +29,7 @@ export const getCountries = () => {
 
 export const getCountryDetails = (param) => {
   return async function(dispatch) {
-    return axios.get(`http://localhost:3001/api/countries/${param}`)
+    return axios.get(`/api/countries/${param}`)
     .then(details => {
         dispatch({
             type: GET_COUNTRIE_DETAIL,
@@ -42,7 +44,7 @@ export const getCountryDetails = (param) => {
 
 export const createActivitie = (inputActivitie) => {
    return async function(dispatch) {
-    return axios.post('http://localhost:3001/api/activities', inputActivitie)
+    return axios.post('/api/activities', inputActivitie)
     .then(response => {
         dispatch({
             type: CREATE_ACTIVITIE,
@@ -56,7 +58,7 @@ export const createActivitie = (inputActivitie) => {
 
 export const searchName = (input) => {
  return async function (dispatch) {
-    return axios.get(`http://localhost:3001/api/countries?name=${input.name}`)
+    return axios.get(`/api/countries?name=${input.name}`)
     .then(countries => {
         dispatch({
           type: GET_COUNTRY_NAME,
