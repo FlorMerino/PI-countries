@@ -37,7 +37,7 @@ const Home = ()=>{
     return(
         <div>
          <NavBar countries={countries} allCountries={allCountries} setPag={setPag} ></NavBar>
-        
+         <hr></hr>
          <div className='allCountries' >
              
            { typeof countries === 'string'?

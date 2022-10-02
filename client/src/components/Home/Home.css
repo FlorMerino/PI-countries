@@ -13,6 +13,7 @@
 }
 @media (min-width: 768px) {
     .allCountries {
+        margin-top: 6rem;
         display: grid;
         grid-template-columns: 33.3% 33.3% 33.3%; /* que ocupe la tercer parte del 100% de la pantalla xq son 3 espacios, o podemos poner 1fr (de fraccion)o poner repeat(3, 1fr)*/
         column-gap: 1rem; /* separacion entre las columnas*/
