@@ -2,46 +2,50 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+const pg = require('pg')
 const {
   DB_USER, DB_PASSWORD, DB_HOST,DB_NAME,
-  USER_HEROKU,PASSWORD_HEROKU,HOST_HEROKU,DBNAME_HEROKU,
+  USER_RAILWAY,PASSWORD_RAILWAY,HOST_RAILWAY,DBNAME_RAILWAY,PORT_RAILWAY
 } = process.env;
 
 
 
-let sequelize= 
- process.env.NODE_ENV === "production" 
- ? new Sequelize({
-   database: DBNAME_HEROKU,
-   dialect: "postgres",
-   host:HOST_HEROKU,
-   port:5432,
-   username: USER_HEROKU,
-   password: PASSWORD_HEROKU,
-   pool: {
-    max:3,
-    min:1,
-    idle:10000,
-   },
-   dialectOptions:{
-    ssl:{
-      require: true,
-      //Ref. : https://github.com/brianc/node-postgres/issues/2009
-      rejectUnauthorized:false,
-    },
-    keepAlive: true,
-   },
-   ssl:true,
- })
-:new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
-   logging: false,  native: false});
+// let sequelize= 
+//  process.env.NODE_ENV === "production" 
+//  ? new Sequelize({
+//    database: DBNAME_HEROKU,
+//    dialect: "postgres",
+//    host:HOST_HEROKU,
+//    port:5432,
+//    username: USER_HEROKU,
+//    password: PASSWORD_HEROKU,
+//    pool: {
+//     max:3,
+//     min:1,
+//     idle:10000,
+//    },
+//    dialectOptions:{
+//     ssl:{
+//       require: true,
+//       //Ref. : https://github.com/brianc/node-postgres/issues/2009
+//       rejectUnauthorized:false,
+//     },
+//     keepAlive: true,
+//    },
+//    ssl:true,
+//  })
+// :new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+//    logging: false,  native: false});
 
 //Sin deploy va esto
-//const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
-  
-//   logging: false, // set to console.log to see the raw SQL queries
-//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//});
+//postgressql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries
+const sequelize = new Sequelize(
+  `postgresql://${DB_USER}:${PASSWORD_RAILWAY}@${HOST_RAILWAY}:${PORT_RAILWAY}/${DBNAME_RAILWAY}`, 
+{
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  dialectModule: pg,
+});
 
 const basename = path.basename(__filename);
 
