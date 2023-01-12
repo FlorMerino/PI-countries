@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store/index';
 
 ///para deploy
-axios.defaults.baseURL= process.env.REACT_APP_API || "http://localhost:3001"; //react para detectar q sea variable de entorno necesita empezar con REACT_APP
+axios.defaults.baseURL= 'https://pi-countries-back-ten.vercel.app/' || "http://localhost:3001"; //react para detectar q sea variable de entorno necesita empezar con REACT_APP
 /////////////////////////////////////////////////////////////////////////////
 
 ReactDOM.render(
